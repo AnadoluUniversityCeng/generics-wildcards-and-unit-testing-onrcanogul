@@ -62,17 +62,12 @@ public class App {
     public static <E extends Enum<E>> void incrementCountMapGenerics(Map<E, Integer> map, E key) {
         map.merge(key, 1, Integer::sum);
     }
-
     public static void incrementCountMapWildcard(Map<? extends Enum<?>, Integer> map, Enum<?> key) {
         map.merge(key, 1, Integer::sum);
     }
-
-    // Other generic methods...
-
     public static <E extends Enum<E>> void incrementCountMapEnumDescG(Map<E, Integer> map, Enum.EnumDesc<E> key) {
         map.merge(key, 1, Integer::sum);
     }
-
     public static void incrementCountMapEnumDescW(Map<? extends Enum.EnumDesc<?>, Integer> map, Enum.EnumDesc<?> key) {
         map.merge(key, 1, Integer::sum);
     }
