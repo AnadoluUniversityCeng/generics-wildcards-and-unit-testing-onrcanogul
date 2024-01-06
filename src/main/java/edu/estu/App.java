@@ -3,6 +3,7 @@ package edu.estu;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.EnumMap;
 
 /**
  * BIM207 Project has 2 Parts, 50 points each.
@@ -58,16 +59,23 @@ public class App {
      * Hint: Map.merge() - One method to rule them all
      * https://nurkiewicz.com/2019/03/mapmerge-one-method-to-rule-them-all.html
      */
-    static <> void {
+    public static <E extends Enum<E>> void incrementCountMapGenerics(Map<E, Integer> map, E key) {
+        map.merge(key, 1, Integer::sum);
     }
 
-    static void {
+    public static void incrementCountMapWildcard(Map<? extends Enum<?>, Integer> map, Enum<?> key) {
+        map.merge(key, 1, Integer::sum);
     }
 
-    static <> void {
+    // Other generic methods...
+
+    public static <E extends Enum<E>> void incrementCountMapEnumDescG(Map<E, Integer> map, Enum.EnumDesc<E> key) {
+        map.merge(key, 1, Integer::sum);
     }
 
-    static void {
+    public static void incrementCountMapEnumDescW(Map<? extends Enum.EnumDesc<?>, Integer> map, Enum.EnumDesc<?> key) {
+        map.merge(key, 1, Integer::sum);
     }
+
 }
 
